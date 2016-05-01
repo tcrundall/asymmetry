@@ -1,52 +1,53 @@
+from __future__ import print_function
+import numpy as np
 import random
 
-UNI_DIM = 1000
+UNI_DIM = 100
 
+
+def shuffle_list(list):
+    dim = len(list)
+    for i in range(dim-1, -1, -1):
+        j = random.randrange(0,i+1)
+        temp = list[i]
+        list[i] = list[j]
+        list[j] = list[i]
+
+    return list
 
 # simulating universe as a 2D array of 1's and 0's
 def init_univ(dim):
     universe = []
 
-    for i in range(dim):
-        row = []
-        for j in range(dim):
-            row.append(random.randrange(-1,2,2))
+    for i in range(dim*dim/2):
+        universe.append(1)
+        universe.append(-1)
 
-        universe.append(row)
+    universe = shuffle_list(universe)
 
-    sum = 0
-    for i in range(dim):
-        for j in range(dim):
-            sum = sum + universe[i][j]
-
+    #print sum(universe)
     return universe
 
 def get_sample(universe, dim, x_start, y_start):
     sample = []
     for i in range(dim):
-        row = []
         for j in range(dim):
-            row.append(universe[y_start + i][x_start + j])
-
-        sample.append(row)
+            sample.append(universe[(y_start + i)*UNI_DIM + x_start + j])
 
     return sample
 
-def print_array(array):
-    for row in array:
-        print row
+def print_array(array, dim):
+    for i in range(len(array)):
+        if i%dim == 0:
+            print()
+        print(str(array[i]) + ", ", end="")
+    print()
 
 # gets the symmetry of an array, assumes array is square and elements
 # are either -1 or 1
-def symmetry(array):
-    dim = len(array)
-    
-    sum = 0
-    for row in array:
-        for element in row:
-            sum = sum + element
-
-    return float(sum) / (dim*dim)
+def symmetry(my_list, dim):
+    #print(my_list)
+    return float(sum(my_list)) / (dim*dim)
 
 def random_sample(universe, dim):
     x_start = random.randrange(0,UNI_DIM - dim)
@@ -54,21 +55,23 @@ def random_sample(universe, dim):
 
     return get_sample(universe, dim, x_start, y_start)
 
-def list_of_symmetries(universe, dim, length):
-    list = []
+def list_of_symmetries(universe, sample_dim, length):
+    s_list = []
 
     for i in range(length):
-        list.append(symmetry(random_sample(universe, dim)))
+        s_list.append(symmetry(random_sample(universe, sample_dim),sample_dim))
 
-    return list
+    return s_list
 
 def main():
+    SAMPLE_DIM = UNI_DIM/10
     universe = init_univ(UNI_DIM)
-    sample = get_sample(universe, 5, 5, 5)
-    print symmetry(universe)
 
-    print
+    my_list = list_of_symmetries(universe, SAMPLE_DIM, 100)
+    #print(my_list)
+    print("For universe with dimension: " + str(UNI_DIM) + 
+            " the standard deviation of samples is:\n" + str(np.std(my_list)))
 
-    print list_of_symmetries(universe, UNI_DIM/10, 10)
 
-main()
+for UNI_DIM in range(40, 8000, 50):
+    main()
