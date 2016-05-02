@@ -1,0 +1,52 @@
+For universe with dimension: 40 the standard deviation of samples is:
+0.252289516231
+For universe with dimension: 90 the standard deviation of samples is:
+0.11625933202
+For universe with dimension: 140 the standard deviation of samples is:
+0.0668406292681
+For universe with dimension: 190 the standard deviation of samples is:
+0.0531872979875
+For universe with dimension: 240 the standard deviation of samples is:
+0.0454713186295
+For universe with dimension: 290 the standard deviation of samples is:
+0.0451593334842
+For universe with dimension: 340 the standard deviation of samples is:
+0.0259493136285
+For universe with dimension: 390 the standard deviation of samples is:
+0.024058804757
+For universe with dimension: 440 the standard deviation of samples is:
+0.0238534176361
+For universe with dimension: 490 the standard deviation of samples is:
+0.0184653551645
+For universe with dimension: 540 the standard deviation of samples is:
+0.0173898748158
+For universe with dimension: 590 the standard deviation of samples is:
+0.0181941164312
+For universe with dimension: 640 the standard deviation of samples is:
+0.0156465084812
+For universe with dimension: 690 the standard deviation of samples is:
+0.0155817541657
+For universe with dimension: 740 the standard deviation of samples is:
+0.0144013607305
+For universe with dimension: 790 the standard deviation of samples is:
+0.0133559788394
+For universe with dimension: 840 the standard deviation of samples is:
+0.0115987319289
+For universe with dimension: 890 the standard deviation of samples is:
+0.0122351928702
+For universe with dimension: 940 the standard deviation of samples is:
+0.0101319860298
+For universe with dimension: 990 the standard deviation of samples is:
+0.00955729756588
+For universe with dimension: 1040 the standard deviation of samples is:
+0.00986260753363
+For universe with dimension: 1090 the standard deviation of samples is:
+0.00876317565385
+For universe with dimension: 1140 the standard deviation of samples is:
+0.00742996490793
+For universe with dimension: 1190 the standard deviation of samples is:
+0.00759374054776
+For universe with dimension: 1240 the standard deviation of samples is:
+0.00749252938541
+For universe with dimension: 1290 the standard deviation of samples is:
+0.00768601528867
