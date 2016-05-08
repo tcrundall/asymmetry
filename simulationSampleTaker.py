@@ -1,6 +1,8 @@
 from __future__ import print_function
+import matplotlib.pyplot as plt
 import numpy as np
 import random
+import sys
 
 UNI_DIM = 100
 
@@ -67,11 +69,20 @@ def main():
     SAMPLE_DIM = UNI_DIM/10
     universe = init_univ(UNI_DIM)
 
-    my_list = list_of_symmetries(universe, SAMPLE_DIM, 100)
+    my_list = list_of_symmetries(universe, SAMPLE_DIM, 1000)
     #print(my_list)
     print("For universe with dimension: " + str(UNI_DIM) + 
             " the standard deviation of samples is:\n" + str(np.std(my_list)))
 
+    plt.hist(my_list)
+    plt.title("Sample Asymmetries")
+    plt.xlabel("Asymmetry")
+    plt.ylabel("Number of Samples")
+    plt.savefig(str(SAMPLE_DIM) + "_sample.png")
+    #plt.show()
 
-for UNI_DIM in range(40, 8000, 50):
-    main()
+#for UNI_DIM in range(40, 8000, 50):
+#    main()
+
+UNI_DIM = int(sys.argv[1])
+main()
