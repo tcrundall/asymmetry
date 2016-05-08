@@ -66,7 +66,9 @@ def list_of_symmetries(universe, sample_dim, length):
     return s_list
 
 def main():
-    SAMPLE_DIM = UNI_DIM/10
+    UNI_DIM = SAMPLE_DIM*10
+    if FIXED_UNIVERSE_SIZE:
+        UNI_DIM = 1000
     universe = init_univ(UNI_DIM)
 
     my_list = list_of_symmetries(universe, SAMPLE_DIM, 1000)
@@ -80,11 +82,22 @@ def main():
             + " mean: " + str(np.mean(my_list)))
     plt.xlabel("Asymmetry")
     plt.ylabel("Number of Samples")
-    plt.savefig(str(SAMPLE_DIM) + "_sample.png")
+    if FIXED_UNIVERSE_SIZE:
+        plt.savefig(str(SAMPLE_DIM) + "_sample_fixed.png")
+    else:
+        plt.savefig(str(SAMPLE_DIM) + "_sample.png")
     #plt.show()
 
 #for UNI_DIM in range(40, 8000, 50):
 #    main()
 
-UNI_DIM = int(sys.argv[1])
+SAMPLE_DIM = int(sys.argv[1])
+if len(sys.argv) == 3:
+    FIXED_UNIVERSE_SIZE = True
+else:
+    FIXED_UNIVERSE_SIZE = False
+
+if (FIXED_UNIVERSE_SIZE):
+    print("Fixed universe size at 1000")
+
 main()
