@@ -75,7 +75,9 @@ def main():
             " the standard deviation of samples is:\n" + str(np.std(my_list)))
 
     plt.hist(my_list)
-    plt.title("Sample Asymmetries")
+    plt.title(str(SAMPLE_DIM) + " Sample Asymmetries with universe size: " 
+            + str(UNI_DIM) + "\nStdev: " + str(np.std(my_list))
+            + " mean: " + str(np.mean(my_list)))
     plt.xlabel("Asymmetry")
     plt.ylabel("Number of Samples")
     plt.savefig(str(SAMPLE_DIM) + "_sample.png")
